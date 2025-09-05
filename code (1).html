@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BPMCE Gaming Community - Free Fire Tournament Announcement</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* General Body Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Neon Text Effects */
+    .neon-text {
+      text-shadow: 0 0 5px #ff6f00, 0 0 10px #ff6f00, 0 0 15px #ff6f00, 0 0 20px #ff6f00;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #ff6f00, 0 0 10px #ff6f00, 0 0 15px #ff6f00, 0 0 20px #ff6f00;
+      }
+      to {
+        text-shadow: 0 0 10px #ff6f00, 0 0 20px #ff6f00, 0 0 30px #ff6f00, 0 0 40px #ff6f00;
+      }
+    }
+
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 111, 0, 0.5);
+      position: relative;
+      border-bottom: 4px solid #ff6f00;
+    }
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo-container img {
+      max-height: 100px;
+      width: auto;
+      filter: drop-shadow(0 0 10px #ff6f00);
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo-container img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 111, 0, 0.8);
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin: 10px 0;
+      color: #ff6f00;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0;
+      color: #2a5298;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #ccc;
+    }
+
+    /* Slider Styles */
+    .slider {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(255, 111, 0, 0.7);
+    }
+
+    .slides {
+      display: flex;
+      width: 400%;
+      animation: slideAuto 16s infinite;
+      transition: transform 0.5s ease;
+    }
+
+    .slides img {
+      width: 25%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    @keyframes slideAuto {
+      0%, 24% { transform: translateX(0%); }
+      25%, 49% { transform: translateX(-100%); }
+      50%, 74% { transform: translateX(-200%); }
+      75%, 100% { transform: translateX(-300%); }
+    }
+
+    .slider-controls {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 10px;
+      right: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .slider-button {
+      background: rgba(0, 0, 0, 0.7);
+      border: none;
+      color: #ff6f00;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .slider-button:hover {
+      background: rgba(255, 111, 0, 0.8);
+      color: #fff;
+    }
+
+    .dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      background: #ccc;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .dot.active {
+      background: #ff6f00;
+    }
+
+    /* Countdown Styles */
+    .countdown {
+      background: #1a1a1a;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 400px;
+      box-shadow: 0 0 15px rgba(42, 82, 152, 0.5);
+    }
+
+    .countdown-text {
+      font-size: 2rem;
+      color: #ff6f00;
+      margin-bottom: 10px;
+    }
+
+    .time-display {
+      font-size: 3rem;
+      color: #2a5298;
+      font-weight: bold;
+    }
+
+    /* Schedule Section */
+    .schedule-section {
+      background: #2a2a2a;
+      padding: 40px 20px;
+      border-radius: 15px;
+      margin: 30px auto;
+      max-width: 800px;
+      box-shadow: 0 0 20px rgba(255, 111, 0, 0.5);
+      overflow-x: auto;
+    }
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      min-width: 600px;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+      border: 2px solid #ff6f00;
+      padding: 15px;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .schedule-table th {
+      background: #2a5298;
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    .schedule-table tr:nth-child(even) {
+      background: #1a1a1a;
+    }
+
+    .schedule-table tr:hover {
+      background: #3a3a3a;
+      transition: background 0.3s ease;
+    }
+
+    /* Notes Section */
+    .notes-section {
+      background: #111;
+      padding: 30px 20px;
+      border-radius: 15px;
+      margin: 30px auto;
+      max-width: 600px;
+      box-shadow: 0 0 20px rgba(42, 82, 152, 0.5);
+    }
+
+    .notes-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .notes-list li {
+      margin-bottom: 20px;
+      position: relative;
+      padding-left: 30px;
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
+
+    .notes-list li:hover {
+      color: #ff6f00;
+    }
+
+    .notes-list li::before {
+      content: "⚡";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #ff6f00;
+      font-size: 1.5rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #0d0d0d;
+      padding: 20px;
+      text-align: center;
+      border-top: 4px solid #2a5298;
+    }
+
+    footer img {
+      height: 60px;
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      color: #ff6f00;
+      font-weight: bold;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .slides img {
+        height: 200px;
+      }
+      .schedule-section {
+        padding: 30px 15px;
+      }
+      .notes-section {
+        padding: 25px 15px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.3rem;
+      }
+      .slides img {
+        height: 150px;
+      }
+      .schedule-section {
+        padding: 20px 10px;
+      }
+      .notes-section {
+        padding: 20px 10px;
+      }
+      .logo-container img {
+        max-height: 70px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.1rem;
+      }
+      .slides img {
+        height: 120px;
+      }
+      .schedule-section {
+        padding: 15px 5px;
+      }
+      .notes-section {
+        padding: 15px 5px;
+      }
+      .logo-container {
+        gap: 15px;
+      }
+      .logo-container img {
+        max-height: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="https://images.nightcafe.studio/jobs/1v6Q0q6Q6Q0v6Q6Q0v6Q/1v6Q0q6Q6Q0v6Q6Q0v6Q--1--free-fire-logo-neon-style-digital-art-4k-8k.jpg?tr=w-256,c-at_max" alt="AI generated Free Fire logo with neon orange and blue glowing effect on dark background" />
+      <img src="https://images.nightcafe.studio/jobs/1v6Q0q6Q6Q0v6Q6Q0v6Q/1v6Q0q6Q6Q0v6Q6Q0v6Q--2--gaming-community-logo-futuristic-eagle-with-controllers-4k.jpg?tr=w-256,c-at_max" alt="AI generated BPMCE Gaming Community logo featuring a futuristic eagle with gaming controllers and neon orange-blue glow" />
+    </div>
+    <h1 class="neon-text">BPMCE Gaming Community</h1>
+    <h2>Free Fire Tournament Announcement</h2>
+    <p class="subtitle">Sunday Showdown - Rounds start at 12 PM and finish before 6 PM.</p>
+  </header>
+
+  <section class="slider" aria-label="Tournament image slideshow">
+    <div class="slides" id="slides">
+      <img src="https://images.nightcafe.studio/jobs/1v6Q0q6Q6Q0v6Q6Q0v6Q/1v6Q0q6Q6Q0v6Q6Q0v6Q--1--vibrant-free-fire-battle-royale-game-scene-4k-8k-0.jpg?tr=w-900,c-at_max" alt="AI generated vibrant Free Fire battle royale game scene with neon orange and blue highlights" />
+      <img src="https://images.nightcafe.studio/jobs/1v6Q0q6Q6Q0v6Q6Q0v6Q/1v6Q0q6Q6Q0v6Q6Q0v6Q--2--gaming-community-logo-futuristic-eagle-with-controllers-4k.jpg?tr=w-900,c-at_max" alt="AI generated BPMCE Gaming Community logo featuring a futuristic eagle with gaming controllers and neon orange-blue glow" />
+      <img src="https://images.nightcafe.studio/jobs/1v6Q0q6Q6Q0v6Q6Q0v6Q/1v6Q0q6Q6Q0v6Q6Q0v6Q--3--free-fire-tournament-poster-with-players-and-fire-effects-4k.jpg?tr=w-900,c-at_max" alt="AI generated Free Fire tournament poster with players and fire effects in neon style" />
+      <img src="https://images.nightcafe.studio/jobs/1v6Q0q6Q6Q0v6Q6Q0v6Q/1v6Q0q6Q6Q0v6Q6Q0v6Q--4--esports-gaming-arena-with-neon-lights-and-crowd-4k.jpg?tr=w-900,c-at_max" alt="AI generated esports gaming arena with neon lights and crowd cheering" />
+    </div>
+    <div class="slider-controls">
+      <button class="slider-button" id="prev" aria-label="Previous slide">←</button>
+      <button class="slider-button" id="next" aria-label="Next slide">→</button>
+    </div>
+    <div class="dots" role="tablist" aria-label="Slide navigation">
+      <button class="dot" data-index="0" role="tab" aria-selected="true" aria-controls="slide1" id="tab1"></button>
+      <button class="dot" data-index="1" role="tab" aria-selected="false" aria-controls="slide2" id="tab2"></button>
+      <button class="dot" data-index="2" role="tab" aria-selected="false" aria-controls="slide3" id="tab3"></button>
+      <button class="dot" data-index="3" role="tab" aria-selected="false" aria-controls="slide4" id="tab4"></button>
+    </div>
+  </section>
+
+  <section class="countdown" aria-live="polite" aria-atomic="true" aria-label="Countdown timer to tournament start">
+    <p class="countdown-text">Tournament Starts In:</p>
+    <div class="time-display" id="countdown-timer">Calculating...</div>
+  </section>
+
+  <section class="schedule-section fade-in" aria-labelledby="schedule-title" tabindex="0">
+    <h2 id="schedule-title" class="neon-text" style="text-align:center; margin-bottom:20px;">Tournament Schedule (Sunday)</h2>
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th scope="col">Round</th>
+          <th scope="col">Mode</th>
+          <th scope="col">Time</th>
+          <th scope="col">Details</th>
+          <th scope="col">Advance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Battle Royale (Ranked Qualifiers)</td>
+          <td>12:00 PM – 1:00 PM</td>
+          <td>16 Teams in 2 Rooms (8 Teams each)<br />Top 5 from each room qualify</td>
+          <td>10 Teams</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Battle Royale (Ranked Quarterfinals)</td>
+          <td>1:30 PM – 2:15 PM</td>
+          <td>10 Qualified Teams in 1 BR match<br />Top 4 advance</td>
+          <td>4 Teams</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Clash Squad (Ranked Semi-Finals)</td>
+          <td>2:45 PM – 3:30 PM</td>
+          <td>Top 4 Teams face off in CS mode<br />Top 2 qualify</td>
+          <td>2 Teams</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Clash Squad (Ranked Grand Final)</td>
+          <td>4:00 PM – 5:00 PM</td>
+          <td>Best of 3 Clash Squad Final<br />Winner crowned Champion</td>
+          <td>1 Champion</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="notes-section fade-in" aria-labelledby="notes-title" tabindex="0">
+    <h2 id="notes-title" class="neon-text" style="text-align:center; margin-bottom:20px;">Important Notes</h2>
+    <ul class="notes-list">
+      <li>Room ID & Password will be shared 15 minutes before each match.</li>
+      <li>Teams must be ready 10 minutes before start.</li>
+      <li>Hacks/cheats result in instant disqualification.</li>
+      <li>BR Scoring: Kills + Placement Points.</li>
+      <li>CS Scoring: Round Wins.</li>
+    </ul>
+    <p style="text-align:center; margin-top:20px; color:#ff6f00; font-weight:bold;">
+      Format Recap: 16 Teams → Top 10 → Top 4 → Top 2 → Champion Trophy
+    </p>
+  </section>
+
+  <footer>
+    <img src="https://images.nightcafe.studio/jobs/1v6Q0q6Q6Q0v6Q6Q0v6Q/1v6Q0q6Q6Q0v6Q6Q0v6Q--2--gaming-community-logo-futuristic-eagle-with-controllers-4k
